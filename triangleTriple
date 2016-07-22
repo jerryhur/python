@@ -1,0 +1,49 @@
+'''
+Created on 2016. 7. 20.
+@author: mulder
+@project: check if triangle with given 3 integer
+triangle formula
+given a, b, c
+satisfy a + b > c and a + c > b and b + c > a
+'''
+import time
+
+def count(a, b, c):
+    ''' not ordered list
+    sorted_list = sorted([a, b, c])
+    a = sorted_list[0]
+    b = sorted_list[1]
+    c = a + b - 1
+    #print(c)
+    '''
+    a_list = list(range(1, a+1))
+    b_list = list(range(1, b+1))
+    c_list = list(range(1, c+1))
+    triangle_list = []
+    triangle_result_list = []
+        
+    t0 = time.time()
+    for i in range(len(a_list)):
+        for j in range(len(b_list)):
+            for k in range(len(c_list)):        
+                triangle_list.append([a_list[i], b_list[j], c_list[k]])
+    t1 = time.time()
+    print("execution time of for loop: ", t1-t0)
+    
+    t2 = time.time()
+    for l in range(len(triangle_list)):
+        triple_list = triangle_list[l]
+        triangle_a = triple_list[0]
+        triangle_b = triple_list[1]
+        triangle_c = triple_list[2]
+
+        if triangle_a + triangle_b > triangle_c and triangle_a + triangle_c > triangle_b and triangle_b + triangle_c > triangle_a:
+            triangle_result_list.append(triple_list)
+    t3 = time.time()
+    print("execution time of if: ", t3-t2)
+    
+    return len(triangle_result_list)
+
+print(count(100, 300, 200))
+#print(count(123456789, 987654321, 555555555))
+#out of memory Returns: 64296241
