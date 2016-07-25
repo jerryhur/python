@@ -1,0 +1,11 @@
+def bubbleSort(unSortedList):
+    tempSort = ""
+    for i in range(len(unSortedList)):
+        for j in range(i+1, len(unSortedList)):
+            if unSortedList[i] > unSortedList[j]:
+                tempSort = unSortedList[i]
+                unSortedList[i] = unSortedList[j]
+                unSortedList[j] = tempSort
+    return unSortedList
+
+print(bubbleSort([8,9,5,3,2,1,10]))
