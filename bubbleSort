@@ -1,3 +1,6 @@
+# date: 2016-07-25
+# author: mulder
+
 def bubbleSort(unSortedList):
     tempSort = ""
     for i in range(len(unSortedList)):
